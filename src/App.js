@@ -1,22 +1,21 @@
-import logo from './logo.svg';
 import './App.css';
+import logo2 from './img/flower.png';
 
 function App() {
+  let startRot = ()=>{
+    alert('ok');
+  }
+  function stopRot(){
+    alert('ok');
+  }
   return (
     <div className="App">
+      <p>
+        <button onClick={startRot}>Start Rotating</button>
+        <button onClick={stopRot}> Stop Rotating</button>
+      </p>
       <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
+        <img width="200" src={logo2} className="rot" alt="logo" />
       </header>
     </div>
   );
