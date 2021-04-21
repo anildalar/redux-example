@@ -4,26 +4,28 @@ const ROTATE_START = 'ROTATE_START';
 
 
 //Action Creator
-function startAnimation(){
+//named export
+export function startAnimation(){
     return {
         type:ROTATE_START,
         payload:{
-            status:true
+            status:'start'
         }
     }
 }
 
-function stopAnimation(){
+//named export
+export function stopAnimation(){
     return {
         type:ROTATE_STOP,
         payload:{
-            status:false
+            status:'stop'
         }
     }
 }
 
 let initialState = {
-    state:true
+    status:'start'
 };
 //2. Reducer is a function 
 //Accept Old Value and return new value
@@ -32,13 +34,13 @@ let reducer = (state = initialState,action)=>{
         case  ROTATE_STOP : 
             return {
                 ...state,
-                state:false
+                status:'stop'
             };
             break;
         case ROTATE_START:
             return {
                 ...state,
-                state:true
+                status:'start'
             };
             break;
         default:

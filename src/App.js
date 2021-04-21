@@ -1,24 +1,36 @@
+import { connect } from 'react-redux';
 import './App.css';
-import logo2 from './img/flower.png';
 
-function App() {
-  let startRot = ()=>{
-    alert('ok');
-  }
-  function stopRot(){
-    alert('ok');
-  }
+import logo2 from './img/flower.png';
+import { startAnimation,stopAnimation } from './Redux/index'; 
+
+function App(props) {
+  console.log(props);
   return (
     <div className="App">
+      <p>Initial value is { props.status }</p>
       <p>
-        <button onClick={startRot}>Start Rotating</button>
-        <button onClick={stopRot}> Stop Rotating</button>
+        <button onClick={ props.startAnimation }>Start Rotating</button>
+        <button onClick={ props.stopAnimation  }> Stop Rotating</button>
       </p>
       <header className="App-header">
-        <img width="200" src={logo2} className="rot" alt="logo" />
+        <img width="200" src={logo2} className={ 'rot '+props.status } alt="logo" />
       </header>
     </div>
   );
 }
 
-export default App;
+let mapStateToProps = (state)=>{
+  return {
+    status:state.status
+  };
+}
+
+let mapDispatchToProps = (dispatch)=>{
+  return {
+    startAnimation:()=>{ dispatch( startAnimation() ) },
+    stopAnimation :()=>{ dispatch( stopAnimation() ) }
+  };
+}
+
+export default connect(mapStateToProps,mapDispatchToProps)(App);

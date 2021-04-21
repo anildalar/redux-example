@@ -1,6 +1,22 @@
-.rot0{
-  transform: rotateZ(0deg);
+.rot{
+  animation-name: xyz;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+  animation-play-state: paused;
 }
-.rot45{
-  transform: rotateZ(45deg);
+@keyframes xyz {
+  0%{
+    transform: rotateZ(0deg);
+  }
+  100%{
+    transform: rotateZ(359deg);
+  }
+}
+
+.start{
+  animation-play-state: running;
+}
+.stop{
+  animation-play-state: paused;
 }
